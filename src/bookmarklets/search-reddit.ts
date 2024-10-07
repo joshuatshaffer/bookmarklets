@@ -1,11 +1,10 @@
-/**
- * @param {string} term
- * @param {string} searchParamName
- * @param {string} separator
- */
-function toggleSearchTerm(term, searchParamName, separator) {
+function toggleSearchTerm(
+  term: string,
+  searchParamName: string,
+  separator: string
+) {
   const searchParams = new URLSearchParams(location.search);
-  const q = searchParams.get(searchParamName).split(separator);
+  const q = searchParams.get(searchParamName)?.split(separator) ?? [];
   const i = q.indexOf(term);
   if (i >= 0) {
     q.splice(i, 1);
