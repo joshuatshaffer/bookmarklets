@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc && terser dist/bookmarklets/search-reddit.js --compress passes=2 --mangle > dist/bookmarklets/search-reddit.min.js && tsx src/generate.ts"
+    "build": "tsc && terser dist/bookmarklets/mouse-trail.js --compress passes=2 --mangle -o dist/bookmarklets/mouse-trail.min.js && terser dist/bookmarklets/search-reddit.js --compress passes=2 --mangle -o dist/bookmarklets/search-reddit.min.js && tsx src/generate.ts"
   },
   "dependencies": {
     "simple-html-template-tag": "0.0.5"
