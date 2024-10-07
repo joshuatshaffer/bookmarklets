@@ -4,14 +4,18 @@ function toggleSearchTerm(
   separator: string
 ) {
   const searchParams = new URLSearchParams(location.search);
-  const q = searchParams.get(searchParamName)?.split(separator) ?? [];
-  const i = q.indexOf(term);
-  if (i >= 0) {
-    q.splice(i, 1);
+
+  const searchTerms = searchParams.get(searchParamName)?.split(separator) ?? [];
+
+  const i = searchTerms.indexOf(term);
+  if (i < 0) {
+    searchTerms.push(term);
   } else {
-    q.push(term);
+    searchTerms.splice(i, 1);
   }
-  searchParams.set(searchParamName, q.join(separator));
+
+  searchParams.set(searchParamName, searchTerms.join(separator));
+
   location.search = "" + searchParams;
 }
 
