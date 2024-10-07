@@ -11,7 +11,7 @@
 
     const i = searchTerms.indexOf(term);
     if (i < 0) {
-      searchTerms.push(term);
+      searchTerms.unshift(term);
     } else {
       searchTerms.splice(i, 1);
     }
